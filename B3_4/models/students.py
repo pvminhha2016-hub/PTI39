@@ -4,6 +4,7 @@ class Student:
         self.__name = name
         self.__birthdate = birthdate
         self.__subject_list = subject_list
+        self.__my_GPA = self.get_GPA()
         
     def __str__(self):
         return f"""
@@ -47,7 +48,10 @@ Birthdate: {self.__birthdate}
         self.__subject_list = subject_list
 
     def GTA(self):
-        pass
+        #chuyen thanh thang diem 5
+        if self.__subject_list.get_avg_final_score() == 1:
+            return -1
+        return round(self.__subject_list.get_avg_final_score() / 2, 2)
 
 
 

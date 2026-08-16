@@ -66,4 +66,12 @@ class SubjectList:
                   return# ham ket thuc 
 
         print(f"Subject '{name}' not found ")
-        
+
+
+    def get_avg_final_score (self):
+        if len (self.__subjects):
+             return -1 
+        sum_final_score = 0
+        for subject in self.__subjects:
+             sum_funal_score += subject.get_final_exam()
+        return round(sum_final_score / len (self.__subjects), 2)

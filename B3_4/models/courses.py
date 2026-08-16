@@ -1,4 +1,4 @@
-from B3_4.models.students import Student
+from models.students import Student
 
 
 class Course:
@@ -82,4 +82,11 @@ Number of Students: {len(self.__student_list)}
         return [student for student in self.__student_list if name.lower() in student.get_name().lower()]
     
     # ranking by GPA (read)
-        
+    def ranking_by_GPA(self, number_of_top_sudent:int = "3"):
+        if 1 <= number_of_top_sudent <= len(self.__student_list):
+            sorted_student = sorted(self.__student_list,
+                                    key = lambda student: student.get_GPA(), 
+                                    reverse= True)
+
+            return sorted_student[:number_of_top_sudent]
+        return None #so luongko hop le
